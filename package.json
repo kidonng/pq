@@ -1,0 +1,9 @@
+{
+  "name": "@kidonng/pq",
+  "version": "0.1.0",
+  "description": "Proxy-based alternative to jQuery",
+  "license": "MIT",
+  "repository": "kidonng/pq",
+  "author": "Kid (https://github.com/kidonng)",
+  "files": ["pq.js"]
+}

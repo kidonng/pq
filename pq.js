@@ -6,9 +6,10 @@ const pq = function(target) {
   } else {
     return
   }
+
   const proxy = new Proxy(target, {
     get(target, key) {
-      // New functions
+      // Extra methods
       if (key in pq.___) {
         return function(...argument) {
           target.forEach(function(element) {
@@ -17,11 +18,11 @@ const pq = function(target) {
           return proxy
         }
       }
-      // Proxies
+      // Element proxy
       else if (key in target && key !== 'length') {
         return new pq._(target[key])
       }
-      // Native functions
+      // Native methods
       else if (typeof target[key] === 'function') {
         return target[key].bind(target)
       }
@@ -38,11 +39,11 @@ pq._ = class {
     this._ = target
     return new Proxy(target, {
       get: (target, key) => {
-        // Our functions
+        // Extra methods
         if (key in this) {
           return this[key]
         }
-        // Native functions
+        // Native methods
         else if (typeof target[key] === 'function') {
           return target[key].bind(target)
         }
@@ -101,6 +102,7 @@ pq._ = class {
   is(selector) {
     return this._.matches(selector)
   }
+
   clone(deep) {
     return this._.cloneNode(deep)
   }
@@ -254,7 +256,4 @@ pq.____ = {
   }
 }
 
-window.pq = pq
-if (!('$' in window)) {
-  window.$ = pq
-}
+export default pq
