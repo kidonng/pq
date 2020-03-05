@@ -47,8 +47,9 @@
       gravida at eget metus et magnis dapibus vel tellus et magnis dapibus at
       eget.
     </p>
-    <script src="pq.js"></script>
-    <script>
+    <script type="module">
+      import $ from './pq.js'
+
       $('button')
         .addClass('hello')
         .toggleClass('world')
@@ -64,7 +65,9 @@
         .next()
         .click(async function() {
           const data = await $.getText('https://httpbin.org/json')
-          $('p')[0].text(data)
+          $('p')[0]
+            .text(data)
+            .css('white-space', 'pre')
         })
     </script>
   </body>
