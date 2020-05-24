@@ -5,5 +5,16 @@
   "license": "MIT",
   "repository": "kidonng/pq",
   "author": "Kid (https://github.com/kidonng)",
-  "files": ["pq.js"]
+  "types": "dist/pq.d.ts",
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "prettier": "^2.0.2",
+    "typescript": "^3.8.3"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  }
 }
