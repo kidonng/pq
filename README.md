@@ -9,7 +9,7 @@ pq is a `Proxy`-based alternative to jQuery. It makes use of modern JavaScript f
 
 ## Example
 
-Also checkout the [Live demo](https://ghcdn.rawgit.org/kidonng/pq/master/demo.html).
+Also checkout the [Live demo](https://e4ni1.csb.app/).
 
 ```html
 <p>Apple</p>
